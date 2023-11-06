@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SaludoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,9 +46,7 @@ Route::get('/division/{num1}/{num2}', function ($num1, $num2) {
     'num2' => '[0-9]+'
 ]);
 
-Route::get('/saludo/{nombre}/{apellido?}', function ($nombre, $apellido = "Doe") {
-    return "Hola ".$nombre." ".$apellido;
-}) -> where([
+Route::get('/saludo/{nombre}/{apellido?}', [SaludoController::class, 'index']) -> where([
     'nombre' => '[A-Za-z]+',
     'apellido' => '[A-Za-z]+'
 ]);
