@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\SaludoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Carcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,6 @@ Route::get('/greeting/{nombre?}', function ($nombre = "John") {
 }) -> where([
     'nombre' => '[A-Za-z]+',
 ]);
+
+Route::get('/car', [Carcontroller::class, 'getAllCar']);
+Route::get('/car/{id}', [Carcontroller::class, 'getCarById']);
